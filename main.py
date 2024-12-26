@@ -112,7 +112,7 @@ def reserve_1(guest, room_number,check_in,check_out):
     cursor.execute("Insert Into bookings (Check_in,Check_out,Guest_ID,Room_Number,Billing_ID) VALUES (%s,%s,%s,%s,%s)", (check_in,check_out,guest_id,room_number,billing_id))
     db.commit()
 
-def add_service(room_number,service,cost):
+def add_service_1(room_number,service,cost):
     if room_number is None or service is None:
         return
     cursor.execute("Insert into services (Room_Number, Name, Cost) values(%s,%s,%s)", (room_number, service, cost,))
@@ -241,7 +241,7 @@ def add_service():
     price.pack(pady=20)
 
     def temp():
-        add_service(room_number.get(),Name.get(),price.get())
+        add_service_1(room_number.get(),Name.get(),price.get())
         new_window.destroy()
 
     button = ctk.CTkButton(new_window, text="Add Service", command=temp)
